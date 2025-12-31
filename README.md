@@ -85,20 +85,6 @@ SillyTavern-AnnualSummary/
 
 ---
 
-## ⚠️ 上传前配置
-
-上传到 GitHub 前，请修改以下文件中的用户名：
-
-**install.sh** (第9行):
-```bash
-GITHUB_USER="YOUR_GITHUB_USERNAME"  # 改为你的用户名
-```
-
-**install-remote.ps1** (第12行):
-```powershell
-$GITHUB_USER = "YOUR_GITHUB_USERNAME"  # 改为你的用户名
-```
-
 ---
 
 ## ❓ 常见问题
