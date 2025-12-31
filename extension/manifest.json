@@ -1,0 +1,14 @@
+{
+    "display_name": "Annual Summary",
+    "loading_order": 100,
+    "requires": [],
+    "optional": [],
+    "js": "index.js",
+    "css": "style.css",
+    "author": "SillyTavern Community",
+    "version": "1.0.0",
+    "homePage": "https://github.com/SillyTavern/SillyTavern",
+    "i18n": {
+        "zh-CN": "i18n/zh-CN.json"
+    }
+}
