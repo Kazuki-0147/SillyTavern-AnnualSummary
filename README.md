@@ -83,7 +83,6 @@ SillyTavern-AnnualSummary/
     └── i18n/zh-CN.json
 ```
 
----
 
 ---
 
