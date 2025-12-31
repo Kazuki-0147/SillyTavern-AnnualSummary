@@ -88,7 +88,7 @@ function createStatsCardsHTML(data) {
         { icon: 'fa-message', label: '总消息数', value: formatNumber(data.totalMessages), color: '#2196F3' },
         { icon: 'fa-user', label: '你的消息', value: formatNumber(data.userMessages), color: '#FF9800' },
         { icon: 'fa-robot', label: 'AI 回复', value: formatNumber(data.aiMessages), color: '#9C27B0' },
-        { icon: 'fa-coins', label: 'Token消耗', value: formatNumber(data.totalTokens), color: '#F44336' },
+        { icon: 'fa-coins', label: '累计上下文', value: formatNumber(data.totalTokens) + ' tokens', color: '#F44336' },
         { icon: 'fa-calendar-check', label: '活跃天数', value: data.activeDays, color: '#00BCD4' },
         { icon: 'fa-fire', label: '最长连续活跃', value: data.longestStreak + ' 天', color: '#FF5722' },
         { icon: 'fa-text-width', label: '平均消息长度', value: data.averageMessageLength + ' 字', color: '#795548' },
@@ -529,7 +529,7 @@ async function showAnnualSummary(year = new Date().getFullYear()) {
         content.className = 'annual-summary-container';
         content.innerHTML = `
             <div class="annual-summary-header">
-                <h1>✨ ${year} 年度总结 ✨</h1>
+                <h1>✨ SillyTavern ${year} 年度总结 ✨</h1>
                 <p>你的年度对话回顾</p>
             </div>
             
