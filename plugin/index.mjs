@@ -377,7 +377,9 @@ async function generateAnnualSummary(userDataPath, year) {
         
         if (messages.length === 0) continue;
         
-        let sessionHasYearMessages = false;
+        // 需要同时有用户消息和AI消息才算一个有效会话
+        let hasUserMessage = false;
+        let hasAiMessage = false;
         
         for (const msg of messages) {
             const msgDate = parseTimestamp(msg.send_date || msg.gen_finished || msg.gen_started);
@@ -386,10 +388,14 @@ async function generateAnnualSummary(userDataPath, year) {
                 continue;
             }
             
-            sessionHasYearMessages = true;
             stats.totalMessages++;
             
             const isUser = msg.is_user === true;
+            if (isUser) {
+                hasUserMessage = true;
+            } else {
+                hasAiMessage = true;
+            }
             const messageContent = msg.mes || '';
             const messageLength = messageContent.length;
             
@@ -465,7 +471,8 @@ async function generateAnnualSummary(userDataPath, year) {
             }
         }
         
-        if (sessionHasYearMessages) {
+        // 只有同时有用户消息和AI消息才算有效会话
+        if (hasUserMessage && hasAiMessage) {
             stats.totalSessions++;
             const charStat = stats.characterStats.get(characterName);
             if (charStat) {
@@ -480,7 +487,9 @@ async function generateAnnualSummary(userDataPath, year) {
         
         if (messages.length === 0) continue;
         
-        let sessionHasYearMessages = false;
+        // 需要同时有用户消息和AI消息才算一个有效会话
+        let hasUserMessage = false;
+        let hasAiMessage = false;
         const characterName = `[群组] ${groupName}`;
         
         for (const msg of messages) {
@@ -490,10 +499,14 @@ async function generateAnnualSummary(userDataPath, year) {
                 continue;
             }
             
-            sessionHasYearMessages = true;
             stats.totalMessages++;
             
             const isUser = msg.is_user === true;
+            if (isUser) {
+                hasUserMessage = true;
+            } else {
+                hasAiMessage = true;
+            }
             const messageContent = msg.mes || '';
             const messageLength = messageContent.length;
             
@@ -569,7 +582,8 @@ async function generateAnnualSummary(userDataPath, year) {
             }
         }
         
-        if (sessionHasYearMessages) {
+        // 只有同时有用户消息和AI消息才算有效会话
+        if (hasUserMessage && hasAiMessage) {
             stats.totalSessions++;
             const charStat = stats.characterStats.get(characterName);
             if (charStat) {
